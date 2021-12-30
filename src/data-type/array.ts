@@ -1,4 +1,5 @@
 import { EmelemtType } from '../index';
+import { isSameObject } from './object';
 
 /***
  * @description 校验是数组
@@ -65,7 +66,9 @@ export function isSameArray(valueFirst: [], valueSecond: []) {
         return false;
       }
     } else if (elementType === EmelemtType.object) {
-      // TODO: object对比
+      if (!isSameObject(valueFirst[i], valueSecond[i])) {
+        return false;
+      }
     } else if (elementType === EmelemtType.function) {
       // TODO: function对比
     }
