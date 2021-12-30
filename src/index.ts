@@ -1,6 +1,6 @@
-import * as arrayAst from './data-type/arrayAst';
-import * as numberAst from './data-type/numberAst';
-import * as objectAst from './data-type/objectAst';
+export * from './data-type/arrayAst';
+export * from './data-type/numberAst';
+export * from './data-type/objectAst';
 
 export enum EmelemtType {
   number = '[object Number]',
@@ -10,9 +10,3 @@ export enum EmelemtType {
   object = '[object Object]',
   function = '[object Function]',
 }
-
-export default {
-  arrayAst,
-  numberAst,
-  objectAst,
-};
