@@ -1,5 +1,5 @@
 import { EmelemtType } from '../index';
-import { isSameArray } from './array';
+import { isSameArray } from './arrayAst';
 
 /***
  * @description 校验是Object
@@ -88,7 +88,9 @@ export function isSameObject(
         return false;
       }
     } else if (elementType === EmelemtType.function) {
-      // TODO: function对比
+      if (firstObjectvalue.name !== secondObjectvalue.name) {
+        return false;
+      }
     }
   }
   return true;

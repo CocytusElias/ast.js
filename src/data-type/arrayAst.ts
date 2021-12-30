@@ -1,5 +1,5 @@
 import { EmelemtType } from '../index';
-import { isSameObject } from './object';
+import { isSameObject } from './objectAst';
 
 /***
  * @description 校验是数组
@@ -30,47 +30,51 @@ export function isEmpArray(value: []) {
 
 /***
  * @description 校验两个数组是否相等
- * @param { [] } valueFirst - 第一个被比较的值
- * @param { [] } valueSecond - 第二个被比较的值
+ * @param { [] } firstArray - 第一个被比较的值
+ * @param { [] } secondArray - 第二个被比较的值
  * @return { boolean } 两个数组相同为true，否则为false
  */
-export function isSameArray(valueFirst: [], valueSecond: []) {
-  if (isEmpArray(valueFirst) && isEmpArray(valueSecond)) {
+export function isSameArray(firstArray: [], secondArray: []) {
+  if (isEmpArray(firstArray) && isEmpArray(secondArray)) {
     return true;
   }
 
-  if (valueFirst.length !== valueSecond.length) {
+  if (firstArray.length !== secondArray.length) {
     return false;
   }
 
-  for (let i = 0; i < valueFirst.length; i++) {
+  for (let i = 0; i < firstArray.length; i++) {
     if (
-      Object.prototype.toString.call(valueFirst[i]) !==
-      Object.prototype.toString.call(valueSecond[i])
+      Object.prototype.toString.call(firstArray[i]) !==
+      Object.prototype.toString.call(secondArray[i])
     ) {
       return false;
     }
 
-    const elementType = Object.prototype.toString.call(valueFirst[i]);
+    const elementType = Object.prototype.toString.call(firstArray[i]);
 
     if (
       elementType === EmelemtType.number ||
       elementType === EmelemtType.string ||
       elementType === EmelemtType.boolean
     ) {
-      if (valueFirst[i] !== valueSecond[i]) {
+      if (firstArray[i] !== secondArray[i]) {
         return false;
       }
     } else if (elementType === EmelemtType.array) {
-      if (!isSameArray(valueFirst[i], valueSecond[i])) {
+      if (!isSameArray(firstArray[i], secondArray[i])) {
         return false;
       }
     } else if (elementType === EmelemtType.object) {
-      if (!isSameObject(valueFirst[i], valueSecond[i])) {
+      if (!isSameObject(firstArray[i], secondArray[i])) {
         return false;
       }
     } else if (elementType === EmelemtType.function) {
-      // TODO: function对比
+      const firstValue: Function = firstArray[i];
+      const secondValue: Function = secondArray[i];
+      if (firstValue.name !== secondValue.name) {
+        return false;
+      }
     }
   }
   return true;
