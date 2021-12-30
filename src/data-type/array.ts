@@ -31,25 +31,15 @@ export function isEmpArray(value: []) {
  * @description 校验两个数组是否相等
  * @param { [] } valueFirst - 第一个被比较的值
  * @param { [] } valueSecond - 第二个被比较的值
- * @param { boolean } strict - 是否严格比较，即按顺序情况下，数组内元素一致
  * @return { boolean } 两个数组相同为true，否则为false
  */
-export function isSameArray(
-  valueFirst: [],
-  valueSecond: [],
-  strict: boolean = true,
-) {
+export function isSameArray(valueFirst: [], valueSecond: []) {
   if (isEmpArray(valueFirst) && isEmpArray(valueSecond)) {
     return true;
   }
 
   if (valueFirst.length !== valueSecond.length) {
     return false;
-  }
-
-  if (!strict) {
-    valueFirst.sort();
-    valueSecond.sort();
   }
 
   for (let i = 0; i < valueFirst.length; i++) {
@@ -71,7 +61,7 @@ export function isSameArray(
         return false;
       }
     } else if (elementType === EmelemtType.array) {
-      if (!isSameArray(valueFirst[i], valueSecond[i], strict)) {
+      if (!isSameArray(valueFirst[i], valueSecond[i])) {
         return false;
       }
     } else if (elementType === EmelemtType.object) {
