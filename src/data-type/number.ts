@@ -1,36 +1,40 @@
 /***
  * @description 校验是整型
- * @param { number } value - 被校验的值
+ * @param { number | string } value - 被校验的值
  * @return { boolean } 整型为true，否则为false
  */
-export function isInt(value: number) {
-  return Math.floor(value) === value;
+export function isInt(value: number | string) {
+  if (typeof value === 'string') {
+    return String(parseInt(value)) === String(value) && !isNaN(parseInt(value));
+  } else {
+    return String(Math.floor(value)) === String(value);
+  }
 }
 
 /***
  * @description 校验是正整型
- * @param { number } value - 被校验的值
+ * @param { number | string } value - 被校验的值
  * @return { boolean } 正整型为true，否则为false
  */
-export function isPositiveInt(value: number) {
+export function isPositiveInt(value: number | string) {
   return isInt(value) && value > 0;
 }
 
 /***
  * @description 校验是负整型
- * @param { number } value - 被校验的值
+ * @param { number | string } value - 被校验的值
  * @return { boolean } 负整型为true，否则为false
  */
-export function isNegativeInt(value: number) {
+export function isNegativeInt(value: number | string) {
   return isInt(value) && value < 0;
 }
 
 /***
  * @description 校验是小数
- * @param { value } value - 被校验的值
+ * @param { number | string } value - 被校验的值
  * @return { boolean } 是指定精度的小数为true，否则为false
  */
-export function isDecimals(value: number) {
+export function isDecimals(value: number | string) {
   const valueStr: string = String(value);
   const [integer, decimal] = valueStr.split('.');
   return `${integer}.${decimal}` === valueStr && isInt(parseInt(integer));
@@ -38,12 +42,16 @@ export function isDecimals(value: number) {
 
 /***
  * @description 校验是指定精度的小数
- * @param { number } value - 被校验的值
+ * @param { number | string } value - 被校验的值
  * @param { number } precision - 精度
  * @param { number } scale - 小数位数
  * @return { boolean } 是指定精度的小数为true，否则为false
  */
-export function isDecimals1(value: number, precision: number, scale: number) {
+export function isDecimals1(
+  value: number | string,
+  precision: number,
+  scale: number,
+) {
   const valueStr: string = String(value);
   const [, decimal] = valueStr.split('.');
   return (
