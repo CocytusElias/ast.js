@@ -1,5 +1,5 @@
 import { EmelemtType } from '../index';
-import { isEmpArray, isSameArray } from './array';
+import { isSameArray } from './array';
 
 /***
  * @description 校验是Object
