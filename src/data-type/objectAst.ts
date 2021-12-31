@@ -38,6 +38,10 @@ export function isSameObject(
   firstObject: { [index: string]: any },
   secondObject: { [index: string]: any },
 ) {
+  if (!isObject(firstObject) || !isObject(secondObject)) {
+    return false;
+  }
+
   if (isEmpObject(firstObject) && isEmpObject(secondObject)) {
     return true;
   }

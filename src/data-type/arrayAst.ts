@@ -35,6 +35,10 @@ export function isEmpArray(value: []) {
  * @return { boolean } 两个数组相同为true，否则为false
  */
 export function isSameArray(firstArray: [], secondArray: []) {
+  if (!isArray(firstArray) || !isArray(secondArray)) {
+    return false;
+  }
+
   if (isEmpArray(firstArray) && isEmpArray(secondArray)) {
     return true;
   }
