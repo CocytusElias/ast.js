@@ -41,6 +41,24 @@ export function isDecimal(value: number | string) {
 }
 
 /***
+ * @description 校验是正小数
+ * @param { number | string } value - 被校验的值
+ * @return { boolean } 正小数为true，否则为false
+ */
+export function isPositiveDecimal(value: number | string) {
+  return isDecimal(value) && value > 0;
+}
+
+/***
+ * @description 校验是负小数
+ * @param { number | string } value - 被校验的值
+ * @return { boolean } 负小数为true，否则为false
+ */
+export function isNegativeDecimal(value: number | string) {
+  return isDecimal(value) && value < 0;
+}
+
+/***
  * @description 校验是指定精度的小数
  * @param { number | string } value - 被校验的值
  * @param { number } precision - 精度
@@ -57,6 +75,6 @@ export function isSpecifyPrecisionDecimal(
   return (
     isDecimal(value) &&
     decimal.length === scale &&
-    valueStr.length - 1 === precision
+    valueStr.length - 1 <= precision
   );
 }
