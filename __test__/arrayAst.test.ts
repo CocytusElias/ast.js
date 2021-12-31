@@ -88,6 +88,16 @@ const sameTestCaseArray = [
     result: true,
   },
   {
+    firstTestCase: {},
+    secondTestCase: {},
+    result: false,
+  },
+  {
+    firstTestCase: '[1, 2, 3]',
+    secondTestCase: '[1, 2, 3]',
+    result: false,
+  },
+  {
     firstTestCase: [1, 3, 2],
     secondTestCase: [1, 2, 3],
     result: false,
@@ -125,6 +135,11 @@ const sameTestCaseArray = [
   {
     firstTestCase: [1, [2, { name: 'wang', info: [1, 9, 3] }, 4], 3, 4],
     secondTestCase: [1, [2, { name: 'wang', info: [1, 2, 3] }, 4], 3, 4],
+    result: false,
+  },
+  {
+    firstTestCase: '[1, [2, { name: "wang", info: [1, 9, 3] }, 4], 3, 4]',
+    secondTestCase: '[1, [2, { name: "wang", info: [1, 2, 3] }, 4], 3, 4]',
     result: false,
   },
 ];
