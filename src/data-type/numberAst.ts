@@ -34,7 +34,7 @@ export function isNegativeInt(value: number | string) {
  * @param { number | string } value - 被校验的值
  * @return { boolean } 是指定精度的小数为true，否则为false
  */
-export function isDecimals(value: number | string) {
+export function isDecimal(value: number | string) {
   const valueStr: string = String(value);
   const [integer, decimal] = valueStr.split('.');
   return `${integer}.${decimal}` === valueStr && isInt(parseInt(integer));
@@ -47,7 +47,7 @@ export function isDecimals(value: number | string) {
  * @param { number } scale - 小数位数
  * @return { boolean } 是指定精度的小数为true，否则为false
  */
-export function isDecimals1(
+export function isSpecifyPrecisionDecimal(
   value: number | string,
   precision: number,
   scale: number,
@@ -55,7 +55,7 @@ export function isDecimals1(
   const valueStr: string = String(value);
   const [, decimal] = valueStr.split('.');
   return (
-    isDecimals(value) &&
+    isDecimal(value) &&
     decimal.length === scale &&
     valueStr.length - 1 === precision
   );
