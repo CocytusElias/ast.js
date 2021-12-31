@@ -63,7 +63,7 @@ for (const index in testCaseArray) {
     isEmpArrayResult: boolean;
     noEmpArrayResult: boolean;
   } = testCaseArray[index];
-  test(`ast-function：isPositiveDecimal ，testCase：${testCase}`, () => {
+  test(`ast-function：isArray ，testCase：${testCase}`, () => {
     expect(isArray(testCase)).toBe(isArrayResult);
   });
 
