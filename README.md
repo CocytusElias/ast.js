@@ -515,4 +515,4 @@ console.log(isSameObject({
 
 ## Maintainers
 
-[@elias](
+[@elias](https://github.com/eliassama/comsvr-ast)
