@@ -63,36 +63,36 @@ export function isSameObject(
       return false;
     }
 
-    const firstObjectvalue: any = firstObject[firstObjectKeys[i]];
-    const secondObjectvalue: any = secondObject[secondObjectKeys[i]];
+    const firstObjectValue: any = firstObject[firstObjectKeys[i]];
+    const secondObjectValue: any = secondObject[secondObjectKeys[i]];
 
     if (
-      Object.prototype.toString.call(firstObjectvalue) !==
-      Object.prototype.toString.call(secondObjectvalue)
+      Object.prototype.toString.call(firstObjectValue) !==
+      Object.prototype.toString.call(secondObjectValue)
     ) {
       return false;
     }
 
-    const elementType = Object.prototype.toString.call(firstObjectvalue);
+    const elementType = Object.prototype.toString.call(firstObjectValue);
 
     if (
       elementType === EmelemtType.number ||
       elementType === EmelemtType.string ||
       elementType === EmelemtType.boolean
     ) {
-      if (firstObjectvalue !== secondObjectvalue) {
+      if (firstObjectValue !== secondObjectValue) {
         return false;
       }
     } else if (elementType === EmelemtType.array) {
-      if (!isSameArray(firstObjectvalue, secondObjectvalue)) {
+      if (!isSameArray(firstObjectValue, secondObjectValue)) {
         return false;
       }
     } else if (elementType === EmelemtType.object) {
-      if (!isSameObject(firstObjectvalue, secondObjectvalue)) {
+      if (!isSameObject(firstObjectValue, secondObjectValue)) {
         return false;
       }
     } else if (elementType === EmelemtType.function) {
-      if (firstObjectvalue.name !== secondObjectvalue.name) {
+      if (firstObjectValue.name !== secondObjectValue.name) {
         return false;
       }
     }

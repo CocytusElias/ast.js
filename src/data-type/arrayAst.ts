@@ -74,8 +74,10 @@ export function isSameArray(firstArray: [], secondArray: []) {
         return false;
       }
     } else if (elementType === EmelemtType.function) {
-      const firstValue: Function = firstArray[i];
-      const secondValue: Function = secondArray[i];
+      // eslint-disable-next-line @typescript-eslint/ban-types
+      const firstValue: ()=>void = firstArray[i];
+      // eslint-disable-next-line @typescript-eslint/ban-types
+      const secondValue: ()=>void = secondArray[i];
       if (firstValue.name !== secondValue.name) {
         return false;
       }
