@@ -1,5 +1,5 @@
 import { EmelemtType } from '../index';
-import { isSameObject } from './objectAst';
+import { isSameObject } from './object-ast';
 
 /***
  * @description 校验是数组
@@ -25,7 +25,7 @@ export function noEmpArray(value: any) {
  * @return { boolean } 空数组为true，否则为false
  */
 export function isEmpArray(value: any) {
-  return isArray(value) && !(value.length);
+  return isArray(value) && !value.length;
 }
 
 /***
@@ -75,9 +75,9 @@ export function isSameArray(firstArray: any, secondArray: any) {
       }
     } else if (elementType === EmelemtType.function) {
       // eslint-disable-next-line @typescript-eslint/ban-types
-      const firstValue: ()=>void = firstArray[i];
+      const firstValue: () => void = firstArray[i];
       // eslint-disable-next-line @typescript-eslint/ban-types
-      const secondValue: ()=>void = secondArray[i];
+      const secondValue: () => void = secondArray[i];
       if (firstValue.name !== secondValue.name) {
         return false;
       }

@@ -1,5 +1,5 @@
 import { EmelemtType } from '../index';
-import { isSameArray } from './arrayAst';
+import { isSameArray } from './array-ast';
 
 /***
  * @description 校验是Object
@@ -25,7 +25,7 @@ export function noEmpObject(value: any) {
  * @return { boolean } 空OBJECT为true，否则为false
  */
 export function isEmpObject(value: any) {
-  return isObject(value) && !(Object.keys(value).length);
+  return isObject(value) && !Object.keys(value).length;
 }
 
 /***
@@ -34,10 +34,7 @@ export function isEmpObject(value: any) {
  * @param { { [index: string]: any } } secondObject - 第二个被比较的值
  * @return { boolean } 两个Object相同为true，否则为false
  */
-export function isSameObject(
-  firstObject: any,
-  secondObject: any,
-) {
+export function isSameObject(firstObject: any, secondObject: any) {
   if (!isObject(firstObject) || !isObject(secondObject)) {
     return false;
   }
@@ -98,4 +95,13 @@ export function isSameObject(
     }
   }
   return true;
+}
+
+/***
+ * @description 校验是 Null
+ * @param { any } value - 被校验的值
+ * @return { boolean } OBJECT为true，否则为false
+ */
+export function isNull(value: any) {
+  return typeof value === 'object' && !value;
 }

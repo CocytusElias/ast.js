@@ -128,7 +128,6 @@ const negativeDecimalTestCase = [
   { testCase: 'name', result: false },
   { testCase: '?', result: false },
   { testCase: '', result: false },
-
 ];
 
 for (const index in negativeDecimalTestCase) {

@@ -1,4 +1,10 @@
-import { isObject, isEmpObject, noEmpObject, isSameObject } from '../lib';
+import {
+  isObject,
+  isEmpObject,
+  noEmpObject,
+  isSameObject,
+  isNull,
+} from '../lib';
 
 const testCaseArray = [
   {
@@ -6,70 +12,77 @@ const testCaseArray = [
     isObjectResult: true,
     isEmpObjectResult: true,
     noEmpObjectResult: false,
-    isNull: false
+    isNullResult: false,
   },
   {
     testCase: '{}',
     isObjectResult: false,
     isEmpObjectResult: false,
     noEmpObjectResult: false,
-    isNull: false
+    isNullResult: false,
   },
   {
     testCase: '[]',
     isObjectResult: false,
     isEmpObjectResult: false,
     noEmpObjectResult: false,
-    isNull: false
+    isNullResult: false,
   },
   {
     testCase: [],
     isObjectResult: false,
     isEmpObjectResult: false,
     noEmpObjectResult: false,
-    isNull: false
+    isNullResult: false,
   },
   {
     testCase: '{1,2,3}',
     isObjectResult: false,
     isEmpObjectResult: false,
     noEmpObjectResult: false,
-    isNull: false
+    isNullResult: false,
   },
   {
     testCase: '[1,2,3]',
     isObjectResult: false,
     isEmpObjectResult: false,
     noEmpObjectResult: false,
-    isNull: false
+    isNullResult: false,
   },
   {
     testCase: { pip: 1, dre: 2, pop: 3 },
     isObjectResult: true,
     isEmpObjectResult: false,
     noEmpObjectResult: true,
-    isNull: false
+    isNullResult: false,
   },
   {
     testCase: { test1: { test2: [] } },
     isObjectResult: true,
     isEmpObjectResult: false,
     noEmpObjectResult: true,
-    isNull: false
+    isNullResult: false,
   },
   {
     testCase: null,
     isObjectResult: false,
     isEmpObjectResult: false,
     noEmpObjectResult: false,
-    isNull: true
+    isNullResult: true,
   },
   {
     testCase: undefined,
     isObjectResult: false,
     isEmpObjectResult: false,
     noEmpObjectResult: false,
-    isNull: false
+    isNullResult: false,
+  },
+  {
+    testCase: null,
+    isObjectResult: false,
+    isEmpObjectResult: false,
+    noEmpObjectResult: false,
+    isNullResult: true,
   },
 ];
 
@@ -79,11 +92,13 @@ for (const index in testCaseArray) {
     isObjectResult,
     isEmpObjectResult,
     noEmpObjectResult,
+    isNullResult,
   }: {
     testCase: any;
     isObjectResult: boolean;
     isEmpObjectResult: boolean;
     noEmpObjectResult: boolean;
+    isNullResult: boolean;
   } = testCaseArray[index];
   test(`ast-function：isObject ，testCase：${testCase}`, () => {
     expect(isObject(testCase)).toBe(isObjectResult);
@@ -95,6 +110,10 @@ for (const index in testCaseArray) {
 
   test(`ast-function：noEmpObject ，testCase：${testCase}`, () => {
     expect(noEmpObject(testCase)).toBe(noEmpObjectResult);
+  });
+
+  test(`ast-function：noEmpObject ，testCase：${testCase}`, () => {
+    expect(isNull(testCase)).toBe(isNullResult);
   });
 }
 
