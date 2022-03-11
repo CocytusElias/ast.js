@@ -1,4 +1,4 @@
-import { isArray, isEmpArray, noEmpArray, isSameArray } from '../src';
+import { isArray, isEmpArray, noEmpArray, isSameArray } from '../lib';
 
 const testCaseArray = [
   {

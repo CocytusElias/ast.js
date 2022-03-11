@@ -6,7 +6,7 @@ import {
   isPositiveDecimal,
   isPositiveInt,
   isSpecifyPrecisionDecimal,
-} from '../src';
+} from '../lib';
 
 // ------ Int ------
 

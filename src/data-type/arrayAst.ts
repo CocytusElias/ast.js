@@ -3,38 +3,38 @@ import { isSameObject } from './objectAst';
 
 /***
  * @description 校验是数组
- * @param { [] } value - 被校验的值
+ * @param { any } value - 被校验的值
  * @return { boolean } 数组为true，否则为false
  */
-export function isArray(value: []) {
-  return Object.prototype.toString.call(value) === EmelemtType.array;
+export function isArray(value: any) {
+  return Array.isArray(value);
 }
 
 /***
  * @description 校验不是空数组
- * @param { [] } value - 被校验的值
+ * @param { any } value - 被校验的值
  * @return { boolean } 非空数组为true，否则为false
  */
-export function noEmpArray(value: []) {
-  return isArray(value) && value.length > 0;
+export function noEmpArray(value: any) {
+  return isArray(value) && Boolean(value.length);
 }
 
 /***
  * @description 校验是空数组
- * @param { [] } value - 被校验的值
+ * @param { any } value - 被校验的值
  * @return { boolean } 空数组为true，否则为false
  */
-export function isEmpArray(value: []) {
-  return isArray(value) && value.length === 0;
+export function isEmpArray(value: any) {
+  return isArray(value) && !Boolean(value.length);
 }
 
 /***
  * @description 校验两个数组是否相等
- * @param { [] } firstArray - 第一个被比较的值
- * @param { [] } secondArray - 第二个被比较的值
+ * @param { any } firstArray - 第一个被比较的值
+ * @param { any } secondArray - 第二个被比较的值
  * @return { boolean } 两个数组相同为true，否则为false
  */
-export function isSameArray(firstArray: [], secondArray: []) {
+export function isSameArray(firstArray: any, secondArray: any) {
   if (!isArray(firstArray) || !isArray(secondArray)) {
     return false;
   }

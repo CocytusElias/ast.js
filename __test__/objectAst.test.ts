@@ -1,4 +1,4 @@
-import { isObject, isEmpObject, noEmpObject, isSameObject } from '../src';
+import { isObject, isEmpObject, noEmpObject, isSameObject } from '../lib';
 
 const testCaseArray = [
   {
@@ -6,48 +6,70 @@ const testCaseArray = [
     isObjectResult: true,
     isEmpObjectResult: true,
     noEmpObjectResult: false,
+    isNull: false
   },
   {
     testCase: '{}',
     isObjectResult: false,
     isEmpObjectResult: false,
     noEmpObjectResult: false,
+    isNull: false
   },
   {
     testCase: '[]',
     isObjectResult: false,
     isEmpObjectResult: false,
     noEmpObjectResult: false,
+    isNull: false
   },
   {
     testCase: [],
     isObjectResult: false,
     isEmpObjectResult: false,
     noEmpObjectResult: false,
+    isNull: false
   },
   {
     testCase: '{1,2,3}',
     isObjectResult: false,
     isEmpObjectResult: false,
     noEmpObjectResult: false,
+    isNull: false
   },
   {
     testCase: '[1,2,3]',
     isObjectResult: false,
     isEmpObjectResult: false,
     noEmpObjectResult: false,
+    isNull: false
   },
   {
     testCase: { pip: 1, dre: 2, pop: 3 },
     isObjectResult: true,
     isEmpObjectResult: false,
     noEmpObjectResult: true,
+    isNull: false
   },
   {
     testCase: { test1: { test2: [] } },
     isObjectResult: true,
     isEmpObjectResult: false,
     noEmpObjectResult: true,
+    isNull: false
+  },
+  {
+    testCase: null,
+    isObjectResult: false,
+    isEmpObjectResult: false,
+    noEmpObjectResult: false,
+    isNull: true
+  },
+  {
+    testCase: undefined,
+    isObjectResult: false,
+    isEmpObjectResult: false,
+    noEmpObjectResult: false,
+    isNull: false
   },
 ];
 
