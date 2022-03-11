@@ -16,7 +16,7 @@ export function isObject(value: any) {
  * @return { boolean } 非空OBJECT为true，否则为false
  */
 export function noEmpObject(value: any) {
-  return isObject(value) && Boolean(Object.keys(value).length);
+  return !!(isObject(value) && Object.keys(value).length);
 }
 
 /***
@@ -25,7 +25,7 @@ export function noEmpObject(value: any) {
  * @return { boolean } 空OBJECT为true，否则为false
  */
 export function isEmpObject(value: any) {
-  return isObject(value) && !Boolean(Object.keys(value).length);
+  return isObject(value) && !(Object.keys(value).length);
 }
 
 /***

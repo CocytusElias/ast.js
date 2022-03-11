@@ -16,7 +16,7 @@ export function isArray(value: any) {
  * @return { boolean } 非空数组为true，否则为false
  */
 export function noEmpArray(value: any) {
-  return isArray(value) && Boolean(value.length);
+  return !!(isArray(value) && value.length);
 }
 
 /***
@@ -25,7 +25,7 @@ export function noEmpArray(value: any) {
  * @return { boolean } 空数组为true，否则为false
  */
 export function isEmpArray(value: any) {
-  return isArray(value) && !Boolean(value.length);
+  return isArray(value) && !(value.length);
 }
 
 /***
