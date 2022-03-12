@@ -2,8 +2,8 @@
   "name": "comsvr-ast",
   "version": "2.1.0",
   "description": "More powerful assertion validation tools",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
