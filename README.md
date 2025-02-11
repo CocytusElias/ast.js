@@ -839,4 +839,4 @@ console.log(isNode()); // True in the Node environment
 
 ## Maintainers
 
-[@elias](https://github.com/eliassama/comsvr-ast)
+[@CocytusElias](https://github.com/CocytusElias)
